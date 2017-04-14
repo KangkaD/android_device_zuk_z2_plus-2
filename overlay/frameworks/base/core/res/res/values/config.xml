@@ -473,4 +473,7 @@
          NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
     -->
 
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool>
+
 </resources>
