@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2017 crDroid Android Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+
+	 Icon image made by Yannick from flaticon.com
+	 Adapted by Valeriano
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24.0dp"
+        android:height="24.0dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0"
+        android:tint="?android:attr/colorAccent">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData=" M 18.919 12.48 C 18.388 12.48 17.923 12.945 17.923 13.474 L 17.923 14.933 L 17.923 15.132 L 17.26 15.132 L 17.26 13.607 L 17.26 12.812 C 17.26 12.281 16.796 11.817 16.266 11.817 C 15.735 11.817 15.272 12.281 15.272 12.812 L 15.272 13.474 L 15.272 14.47 L 14.608 14.47 L 14.608 13.474 L 14.608 12.149 C 14.608 11.618 14.145 11.154 13.614 11.154 C 13.083 11.154 12.62 11.618 12.62 12.149 L 12.62 13.408 L 12.62 15.132 L 11.956 15.132 L 11.956 13.474 L 11.956 8.834 C 11.956 8.303 11.559 7.839 10.962 7.839 C 10.498 7.839 10.166 8.104 10.034 8.502 L 5.326 8.502 L 7.448 6.38 L 6.984 5.85 L 4 8.834 L 6.984 11.817 L 7.514 11.286 L 5.326 9.165 L 9.968 9.165 L 9.968 15.662 C 8.575 14.204 6.785 12.613 6.055 13.342 C 5.326 14.072 7.182 16.06 9.768 20.437 C 10.962 22.425 12.42 23.752 14.94 23.752 C 17.658 23.752 19.913 21.498 19.913 18.779 L 19.913 16.591 L 19.913 13.474 C 19.913 12.945 19.515 12.48 18.919 12.48 Z " />
+</vector>

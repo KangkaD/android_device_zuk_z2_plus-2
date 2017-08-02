@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cm="http://schemas.android.com/apk/res/cyanogenmod.platform"
+    android:title="@string/buttons_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+    <SwitchPreference
+        android:key="enable_hw_keys"
+        android:icon="@drawable/ic_buttons"
+        android:title="@string/hw_keys_title"
+        android:summary="@string/hw_keys_summary" />
+
+    <com.viper.venom.fragments.ButtonBacklightBrightness
+        android:key="button_backlight"
+		android:icon="@drawable/backlight_icon"
+        android:title="@string/button_backlight_title"
+        android:dialogTitle="@string/button_backlight_title"
+        android:persistent="false"
+        android:dependency="enable_hw_keys" />
+
+    <com.viper.venom.preference.SystemSettingSwitchPreference
+        android:key="button_light_screen"
+        android:icon="@drawable/backlight_icon"
+        android:title="@string/button_light_press_title"
+        android:summaryOn="@string/button_light_press_summary_on"
+        android:summaryOff="@string/button_light_press_summary_off"
+        android:defaultValue="@*android:bool/config_buttonLightOnKeypressOnly"
+        android:dependency="enable_hw_keys" />
+
+    <PreferenceCategory
+        android:key="navigation_bar_category"
+        android:title="@string/navigation_bar_category" >
+
+        <SwitchPreference
+            android:key="navigation_bar_enabled"
+            android:icon="@drawable/ic_navigation"
+            android:title="@string/navigation_bar_enable_title"
+            android:summary="@string/navigation_bar_enable_summary" />
+
+        <com.viper.venom.preference.SystemSettingSwitchPreference
+            android:key="pixel_nav_animation"
+            android:icon="@drawable/animation"
+            android:title="@string/pixel_navbar_anim_title"
+            android:summary="@string/pixel_navbar_anim_summary"
+            android:defaultValue="true"
+            android:dependency="navigation_bar_enabled" />
+
+        <com.viper.venom.preference.SystemSettingSwitchPreference
+            android:key="nav_bar_dynamic"
+            android:icon="@drawable/ic_navbar_dynamic"
+            android:title="@string/nav_bar_dynamic_title"
+            android:summary="@string/nav_bar_dynamic_summary"
+            android:defaultValue="false"
+            android:dependency="navigation_bar_enabled" />
+
+        <com.viper.venom.preference.SystemSettingSwitchPreference
+            android:key="double_tap_sleep_navbar"
+            android:icon="@drawable/double_tap_icon"
+            android:title="@string/double_tap_sleep_nav_bar_title"
+            android:summary="@string/double_tap_sleep_nav_bar_summary"
+            android:dependency="navigation_bar_enabled"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+                android:key="navigation_bar_menu_arrow_keys"
+                android:icon="@drawable/arrow_keys"
+                android:title="@string/navigation_bar_arrow_keys_title"
+                android:summary="@string/navigation_bar_arrow_keys_summary"
+                android:defaultValue="false"
+                android:dependency="navigation_bar_enabled" />
+
+        <PreferenceScreen
+            android:key="navigation_bar"
+            android:icon="@drawable/ic_navigation"
+            android:title="@string/navigation_bar_title"
+            android:summary="@string/navigation_bar_summary"
+            android:dependency="navigation_bar_enabled">
+            <intent android:action="com.android.settings.action.NAV_BAR_TUNER" />
+        </PreferenceScreen>
+
+        <PreferenceScreen
+            android:fragment="com.viper.venom.fragments.NavBarDimensSettings"
+            android:key="navbar_dimens"
+            android:title="@string/navbar_dimensions_title"
+            android:summary="@string/navbar_dimensions_summary"
+            android:icon="@drawable/ic_navbar_dimen"
+            android:dependency="navigation_bar_enabled" />
+
+        <ListPreference
+            android:key="navigation_home_long_press"
+            android:icon="@drawable/single_tap_icon"
+            android:dialogTitle="@string/navigation_bar_home_long_press_title"
+            android:title="@string/navigation_bar_home_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="navigation_bar_enabled" />
+
+        <ListPreference
+            android:key="navigation_home_double_tap"
+            android:icon="@drawable/double_tap_icon"
+            android:dialogTitle="@string/navigation_bar_home_double_tap_title"
+            android:title="@string/navigation_bar_home_double_tap_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false"
+            android:dependency="navigation_bar_enabled" />
+
+        <ListPreference
+            android:key="navigation_recents_long_press"
+            android:icon="@drawable/single_tap_icon"
+            android:dialogTitle="@string/navigation_bar_recents_title"
+            android:title="@string/navigation_bar_recents_title"
+            android:persistent="false" />
+		
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="back_key"
+        android:title="@string/hardware_keys_back_key_title" >
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="back_wake_screen"
+            android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSecureSettingSwitchPreference
+            android:key="kill_app_longpress_back"
+            android:icon="@drawable/close_icon"
+            android:title="@string/kill_app_longpress_back"
+            android:summary="@string/kill_app_longpress_back_summary"/>
+
+        <com.viper.venom.preference.CustomSeekBarPreference
+            android:key="long_press_kill_delay"
+            android:title="@string/kill_app_longpress_back_delay"
+            android:icon="@drawable/close_icon"
+            android:max="3000"
+            settings:min="250"
+            settings:interval="250"
+            settings:units="ms"
+            android:persistent="false"
+            android:dependency="kill_app_longpress_back" />
+
+    </PreferenceCategory>
+		
+    <PreferenceCategory
+        android:key="power_key"
+        android:title="@string/hardware_keys_power_key_title" >
+
+        <SwitchPreference
+            android:key="power_end_call"
+			android:icon="@drawable/end_call_icon"
+            android:title="@string/power_end_call_title"
+            android:summary="@string/power_end_call_summary"
+            android:persistent="false"/>
+
+    </PreferenceCategory>
+
+
+
+
+
+    <PreferenceCategory 
+    	android:title="@string/hardware_keys_utouch_settings_title">
+
+      	<ListPreference 
+      		android:persistent="false" 
+      		android:entries="@array/hardware_keys_action_entries" 
+      		android:title="@string/hardware_keys_long_tap_key_title" android:key="hardware_keys_assist_press"
+			android:icon="@drawable/single_tap_icon"
+      		android:dialogTitle="@string/hardware_keys_action" 
+      		android:entryValues="@array/hardware_keys_action_values" />
+
+     	<ListPreference 
+     		android:persistent="false" 
+     		android:entries="@array/hardware_keys_action_entries" 
+     		android:title="@string/hardware_keys_swipe_right_key_title" android:key="hardware_keys_menu_press"
+			android:icon="@drawable/swipe_right_icon"
+     		android:dialogTitle="@string/hardware_keys_action" 
+     		android:entryValues="@array/hardware_keys_action_values" />
+
+    	<ListPreference 
+    		android:persistent="false" 
+    		android:entries="@array/hardware_keys_action_entries" 
+    		android:title="@string/hardware_keys_swipe_left_key_title" android:key="hardware_keys_app_switch_press"
+			android:icon="@drawable/swipe_left_icon"
+    		android:dialogTitle="@string/hardware_keys_action" 
+    		android:entryValues="@array/hardware_keys_action_values" />
+
+	</PreferenceCategory>
+
+
+
+
+
+    <PreferenceCategory
+        android:key="home_key"
+        android:title="@string/hardware_keys_home_key_title" >
+		
+        <ListPreference
+            android:key="hardware_keys_home_long_press"
+			android:icon="@drawable/long_press_icon"
+            android:dialogTitle="@string/hardware_keys_long_press_title"
+            android:title="@string/hardware_keys_long_press_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false" />
+
+        <ListPreference
+            android:key="hardware_keys_home_double_tap"
+			android:icon="@drawable/double_tap_icon"
+            android:dialogTitle="@string/hardware_keys_double_tap_title"
+            android:title="@string/hardware_keys_double_tap_title"
+            android:entries="@array/hardware_keys_action_entries"
+            android:entryValues="@array/hardware_keys_action_values"
+            android:persistent="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="home_wake_screen"
+			android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="home_answer_call"
+			android:icon="@drawable/answer_call_icon"
+            android:title="@string/home_answer_call_title"
+            android:summary="@string/home_answer_call_summary"
+            android:persistent="false"/>
+
+    </PreferenceCategory>
+
+
+
+
+
+    <PreferenceCategory
+        android:key="menu_key"
+        android:title="@string/hardware_keys_menu_key_title"
+		android:layout="@layout/empty_layout" >
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="menu_wake_screen"
+			android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false"
+			android:layout="@layout/empty_layout" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="assist_key"
+        android:title="@string/hardware_keys_assist_key_title"
+		android:layout="@layout/empty_layout" >
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="assist_wake_screen"
+			android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false"
+			android:layout="@layout/empty_layout" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="app_switch_key"
+        android:title="@string/hardware_keys_appswitch_key_title"
+		android:layout="@layout/empty_layout" >
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="app_switch_wake_screen"
+			android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false"
+			android:layout="@layout/empty_layout" />
+
+    </PreferenceCategory>
+
+
+
+
+
+    <PreferenceCategory
+        android:key="camera_key"
+        android:title="@string/hardware_keys_camera_key_title">
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="camera_wake_screen"
+			android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="camera_sleep_on_release"
+			android:icon="@drawable/camera_rear_icon"
+            android:title="@string/camera_sleep_on_release_title"
+            android:summary="@string/camera_sleep_on_release_summary"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="camera_launch"
+			android:icon="@drawable/camera_icon"
+            android:title="@string/camera_launch_title"
+            android:summary="@string/camera_launch_summary"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:key="volume_keys"
+        android:title="@string/hardware_keys_volume_keys_title" >
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="volume_wake_screen"
+            android:icon="@drawable/wake_icon"
+            android:title="@string/button_wake_title"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="volume_answer_call"
+            android:icon="@drawable/answer_call_icon"
+            android:title="@string/volume_answer_call_title"
+            android:summary="@string/volume_answer_call_summary"
+            android:defaultValue="false" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="volbtn_music_controls"
+            android:icon="@drawable/music_icon"
+            android:title="@string/volbtn_music_controls_title"
+            android:summary="@string/volbtn_music_controls_summary"
+            android:defaultValue="true" />
+
+        <cyanogenmod.preference.CMSystemSettingSwitchPreference
+            android:key="volume_keys_control_ring_stream"
+            android:icon="@drawable/call_ring_icon"
+            android:title="@string/volume_keys_control_ring_stream_title"
+            android:summaryOn="@string/volume_keys_control_ring_stream_summary_on"
+            android:summaryOff="@string/volume_keys_control_ring_stream_summary_off"
+            android:defaultValue="true" />
+
+        <ListPreference
+            android:key="volume_key_cursor_control"
+            android:icon="@drawable/cursor_icon"
+            android:dialogTitle="@string/volbtn_cursor_control_title"
+            android:title="@string/volbtn_cursor_control_title"
+            android:entries="@array/volbtn_cursor_control_entries"
+            android:entryValues="@array/volbtn_cursor_control_values"
+            android:persistent="false" />
+
+        <SwitchPreference
+            android:key="swap_volume_buttons"
+            android:icon="@drawable/rotation_icon"
+            android:title="@string/swap_volume_buttons_title"
+            android:summary="@string/swap_volume_buttons_summary" />
+    </PreferenceCategory>
+	
+</PreferenceScreen>
