@@ -33,10 +33,10 @@ BOARD_VENDOR := zuk
 
 # Use Snapdragon LLVM, if available
 TARGET_USE_SDCLANG := true
-LOCAL_SDCLANG := true
-SDCLANG := true
-SDCLANG_PATH := vendor/qcom/sdclang-3.8/linux-x86
-SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
+#LOCAL_SDCLANG := true
+#SDCLANG := true
+#SDCLANG_PATH := vendor/qcom/sdclang-3.8/linux-x86
+#SDCLANG_LTO_DEFS := device/qcom/common/sdllvm-lto-defs.mk
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8996
