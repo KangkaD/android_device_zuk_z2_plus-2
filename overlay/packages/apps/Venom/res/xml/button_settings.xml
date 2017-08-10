@@ -27,6 +27,20 @@
         android:summaryOff="@string/button_light_press_summary_off"
         android:defaultValue="@*android:bool/config_buttonLightOnKeypressOnly"
         android:dependency="enable_hw_keys" />
+		
+    <PreferenceCategory
+        android:key="anbi_category"
+        android:title="@string/anbi_title">
+
+    <com.viper.venom.preference.SystemSettingSwitchPreference
+        android:key="anbi"
+        android:title="@string/anbi_title"
+        android:summary="@string/anbi_summary"
+        android:icon="@drawable/single_tap_icon"
+        android:persistent="false" />
+
+    </PreferenceCategory>
+
 
     <PreferenceCategory
         android:key="navigation_bar_category"
