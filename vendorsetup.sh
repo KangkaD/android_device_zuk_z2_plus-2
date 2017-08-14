@@ -1,1 +1,1 @@
-add_lunch_combo viper_z2_plus-userdebug
+add_lunch_combo aim_z2_plus-userdebug
