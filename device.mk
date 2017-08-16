@@ -284,3 +284,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
 
+PRODUCT_PROPERTY_OVERRIDES += \
+        ro.ota.romname=AIM-ROM \
+        ro.ota.version=$(shell date +"%Y%m%d") \
+        ro.ota.manifest=https://raw.githubusercontent.com/AIMROM/OFFICIAL_DEVICES/N/z2_plus.xml
+	ro.aim.maintainer=KangkaD
+	export AIM_BUILDTYPE=OFFICIAL
